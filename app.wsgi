@@ -1,8 +1,7 @@
 # Change working directory so relative paths (and template lookup) work again
-import os
+import os, sys
 os.chdir(os.path.dirname(__file__))
-
-print __file__
+sys.path.insert(0, '.')
 
 import bottle
 import webpwgen
