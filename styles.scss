@@ -1,0 +1,62 @@
+body {
+  background-color: #688EA1;
+}
+
+#all {
+  margin-left: 10%;
+  margin-right: 4%;
+  background-color: white;
+}
+
+#head {
+    position: relative;
+    background: #5E905D;
+    color: white;
+    padding: 1em 1em 0.5ex 1em;
+
+    a {
+        color: white;
+    }
+}
+
+#body {
+    position: relative;
+}
+
+#foot {
+    @extend #head;
+}
+
+#body {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.sideL {
+    width: 59%;
+}
+.sideR {
+    width: 37%;
+    position: relative;
+    top: -3ex;
+    left: 64%;
+    text-align: right;
+    background-color: #DD5756;
+    color: white;
+
+    span.sideR {
+        width: 100%;
+        position: absolute;
+        left: 0px;
+        padding: 1ex;
+    }
+}
+
+.pswd {
+    font-family: monospace ;
+    font-size: 130%;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 80ex;
+}
+
