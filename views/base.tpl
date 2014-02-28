@@ -4,7 +4,7 @@
 <head>
     <meta name="keywords" content="pwgen, password generátor, zapamatovatelné heslo"/>
     <link href="{{root}}look/styles.css" rel="stylesheet" type="text/css" />
-    <link href="look/favico.png" rel="shortcut icon" type="image/png" />
+    <link href="{{getURL('/')}}look/favico.png" rel="shortcut icon" type="image/png" />
     <title>webPWgen</title>
 </head>
 
