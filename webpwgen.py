@@ -7,35 +7,43 @@
 ############################################################################
 
 
-from bottle import route, request, redirect, response, template, error, static_file,\
-                   default_app,BaseTemplate
+from bottle import route, request, redirect, response, \
+        template, view,  error, \
+        static_file, default_app, BaseTemplate
 import subprocess
 ############################################################################
 
 app=default_app()
 BaseTemplate.defaults['getURL'] = app.get_url
+getURL = app.get_url
+
 
 @route('/look/<filepath:path>')
 def server_static(filepath):
     return static_file(filepath, root='./look')
 
 @route('/')
-def pwgen():
-    length=request.query.length
+@route('/<length:int>')
+def choselang(length=8):
+    redirect(getURL('/')+'cs/'+str(length))
+
+@route('/<lang:re:cs|en>/<length:int>')
+def pwgen(lang,length):
+    if request.query.length: 
+        length=request.query.length
     try :
         length=int(length)
         length= 8 if length<5 or length>40 else length
     except :
         length=8
+    if request.query.length: 
+        redirect(getURL('/')+lang+'/'+str(length))
     pswd= subprocess.check_output(['pwgen','-Ccn',str(length), ])
     return template('base',passwords=pswd, length=length )
 
-############################################################################
-BaseTemplate.defaults['root'] = app.get_url('/')
-############################################################################
+
 
 ############################################################################
-
 @error(404)
 def notFound(error):
     r='<h1>'+error.status+'</h1>'

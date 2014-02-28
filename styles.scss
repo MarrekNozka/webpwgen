@@ -1,5 +1,14 @@
+$zelena: #5E905D;
+$modra: #688EA1; 
+$cervena: #DD5756;
+
+
 body {
-  background-color: #688EA1;
+  background-color: $modra;
+}
+
+a:hover {
+    background-color: $modra;
 }
 
 #all {
@@ -10,7 +19,7 @@ body {
 
 #head {
     position: relative;
-    background: #5E905D;
+    background: $zelena;
     color: white;
     padding: 1em 1em 0.5ex 1em;
 
@@ -40,8 +49,8 @@ body {
     position: relative;
     top: -3ex;
     left: 64%;
-    //text-align: right;
-    background-color: #DD5756;
+    text-align: right;
+    background-color: $cervena;
     color: white;
 
     span.sideR {
