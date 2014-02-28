@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta name="keywords" content="pwgen, password generátor, zapamatovatelné heslo"/>
-    <link href="look/styles.css" rel="stylesheet" type="text/css" />
+    <link href="{{root}}look/styles.css" rel="stylesheet" type="text/css" />
     <link href="look/favico.png" rel="shortcut icon" type="image/png" />
     <title>webPWgen</title>
 </head>
@@ -26,7 +26,7 @@
     </p>
     </form>
     <h2 class="sideL">Vyber si a zapamatuj si</h2>
-    <p class="sideR"><span class="sideR">... nebo se jen inspiruj.</span></p>
+    <p style="text-align:right;">... nebo se jen inspiruj.</p>
     <p>Délka hesel je {{length}}:</p>
     <p class="pswd"><kbd>
         {{passwords}}

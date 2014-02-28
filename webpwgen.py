@@ -7,9 +7,13 @@
 ############################################################################
 
 
-from bottle import route, request, redirect, response, template, error, static_file
+from bottle import route, request, redirect, response, template, error, static_file,\
+                   default_app,BaseTemplate
 import subprocess
 ############################################################################
+
+app=default_app()
+BaseTemplate.defaults['getURL'] = app.get_url
 
 @route('/look/<filepath:path>')
 def server_static(filepath):
@@ -24,8 +28,11 @@ def pwgen():
     except :
         length=8
     pswd= subprocess.check_output(['pwgen','-Ccn',str(length), ])
-    return template('base',passwords=pswd, length=length)
+    return template('base',passwords=pswd, length=length )
 
+############################################################################
+BaseTemplate.defaults['root'] = app.get_url('/')
+############################################################################
 
 ############################################################################
 
@@ -35,6 +42,7 @@ def notFound(error):
     r+='<p>Sorry. Tady nic není</p><hr />'
     r+='<p>'+error.body+'</p>'
     return r
+
 
 
 ############################################################################

@@ -37,7 +37,6 @@ body {
   position: relative;
   top: -3ex;
   left: 64%;
-  text-align: right;
   background-color: #DD5756;
   color: white; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000347}}
@@ -50,7 +49,7 @@ body {
 @media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000355}}
 .pswd {
   font-family: monospace;
-  font-size: 130%;
+  font-size: 170%;
   padding-left: 20px;
   padding-right: 20px;
   max-width: 80ex; }
