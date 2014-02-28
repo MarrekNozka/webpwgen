@@ -19,8 +19,8 @@
 
     <h1 class="sideL"><a href="{{root}}">webPWgen</a></h1>
     <p class=sideR><span class="sideR">
-        <a href="/cs/{{length}}">Čeština</a>
-        <a href="/en/{{length}}">English</a> </span>
+        <a href="{{root}}cs/{{length}}">Čeština</a>
+        <a href="{{root}}en/{{length}}">English</a> </span>
     </p>
 </div>
 
