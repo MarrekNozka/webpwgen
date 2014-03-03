@@ -3,6 +3,5 @@ import os, sys
 os.chdir(os.path.dirname(__file__))
 sys.path.insert(0, '.')
 
-import bottle
 import webpwgen
-application = bottle.default_app()
+application = webpwgen.app
