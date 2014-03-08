@@ -26,9 +26,20 @@ def server_static(filepath):
 @route('/<length:int>')
 @route('/<length:int>/')
 def choselang(length=8):
-    lang='cs'
     if request.get_cookie("lang"):
         lang = request.get_cookie("lang")
+    else:
+        languages=acceptLanguages( request.headers['Accept-Language'] )
+        languages.reverse()
+        try: 
+            cs=languages.index('cs')
+        except:
+            cs=-1
+        try: 
+            en=languages.index('en')
+        except:
+            en=-1
+        lang='cs' if cs>en else 'en'
     redirect(getURL('/')+lang+'/'+str(length))
 
 @route('/<lang:re:cs|en>')
@@ -66,7 +77,8 @@ def notFound(error):
 
 
 ############################################################################
-def accept_languages(browser_pref_langs):
+###  https://gist.github.com/filippo/1106488
+def acceptLanguages(browser_pref_langs):
     """Parses the request and return language list.        
     browser_pref_langs is the plain Accept-Language http request header 
     value.
