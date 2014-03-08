@@ -24,11 +24,23 @@ def server_static(filepath):
 
 @route('/')
 @route('/<length:int>')
+@route('/<length:int>/')
 def choselang(length=8):
-    redirect(getURL('/')+'cs/'+str(length))
+    lang='cs'
+    if request.get_cookie("lang"):
+        lang = request.get_cookie("lang")
+    redirect(getURL('/')+lang+'/'+str(length))
+
+@route('/<lang:re:cs|en>')
+@route('/<lang:re:cs|en>/')
+def golang(lang):
+    redirect(getURL('/')+lang+'/8')
+
 
 @route('/<lang:re:cs|en>/<length:int>')
+@route('/<lang:re:cs|en>/<length:int>/')
 def pwgen(lang,length):
+    response.set_cookie("lang", lang, path=getURL('/'))
     if request.query.length: 
         length=request.query.length
     try :
@@ -39,7 +51,7 @@ def pwgen(lang,length):
     if request.query.length: 
         redirect(getURL('/')+lang+'/'+str(length))
     pswd= subprocess.check_output(['pwgen','-Ccn',str(length), ])
-    return template('base',passwords=pswd, length=length )
+    return template('base',passwords=pswd, length=length, lang=lang)
 
 
 

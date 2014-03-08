@@ -19,21 +19,43 @@
 
     <h1 class="sideL"><a href="{{root}}">webPWgen</a></h1>
     <p class=sideR><span class="sideR">
+% if lang=='cs':
+        Čeština
+        <a href="{{root}}en/{{length}}">English</a>
+% elif lang=='en':
         <a href="{{root}}cs/{{length}}">Čeština</a>
-        <a href="{{root}}en/{{length}}">English</a> </span>
+        English
+% end
+        </span>
     </p>
 </div>
 
 <div id="body">
+% if lang=='cs':
     <h1>Zapamatovatelné heslo?</h1>
+% elif lang=='en':
+    <h1>Memorizing password?</h1>
+% end
     <form method="get">
-    <p> Jak dlouhé má heslo být? (číslo v rozmezí 5 až 40)<br /> 
+
+% if lang=='cs':
+    <p>Jak dlouhé heslo chceš? (číslo v rozmezí 5 až 40)<br /> 
+% elif lang=='en':
+    <p>How long password do you want? (number from 5 to 40)<br /> 
+% end
         <input name="length" type="text" /><input value="Generuj" type="submit" />
     </p>
     </form>
+% if lang=='cs':
     <h2 class="sideL">Vyber si a zapamatuj si</h2>
     <p style="text-align:right;">... nebo se jen inspiruj.</p>
-    <p>Délka hesel je {{length}}:</p>
+    <p>Délka hesel je {{length}} znaků:</p>
+% elif lang=='en':
+    <h2 class="sideL">Choose and remember</h2>
+    <p style="text-align:right;">... or only for inspiration.</p>
+    <p>Lenght of the passwords is {{length}} characters:</p>
+% end
+
     <p class="pswd"><kbd>
         {{passwords}}
     </kbd></p>
