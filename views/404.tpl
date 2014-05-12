@@ -48,7 +48,7 @@ h1 {
 <p class="body"><code>{{body}}</code></p>
 
 <p class="right">
-<img src="/look/Cartoon_monkey_wrench.png" alt="" width="400" height="328" />
+<img src="{{root}}/look/Cartoon_monkey_wrench.png" alt="" width="400" height="328" />
 </p>
 
 <p class="chyba">
