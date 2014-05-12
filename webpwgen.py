@@ -2,18 +2,18 @@
 # Soubor:  main.py
 # Datum:   22.02.2014 11:20
 # Autor:   Marek Nožka, marek <@t> tlapicka <d.t> cz
-# Licence: GNU/GPL 
-# Úloha:   web interface 
+# Licence: GNU/GPL
+# Úloha:   web interface
 ############################################################################
 
 
 from bottle import run, route, request, redirect, response, \
-        template, view,  error, \
-        static_file, default_app, BaseTemplate
+    template, view,  error, \
+    static_file, default_app, BaseTemplate
 import subprocess
 ############################################################################
 
-app=default_app()
+app = default_app()
 BaseTemplate.defaults['getURL'] = app.get_url
 getURL = app.get_url
 
@@ -22,6 +22,7 @@ getURL = app.get_url
 def server_static(filepath):
     return static_file(filepath, root='./look')
 
+
 @route('/')
 @route('/<length:int>')
 @route('/<length:int>/')
@@ -29,18 +30,19 @@ def choselang(length=8):
     if request.get_cookie("lang"):
         lang = request.get_cookie("lang")
     else:
-        languages=acceptLanguages( request.headers['Accept-Language'] )
+        languages = acceptLanguages(request.headers['Accept-Language'])
         languages.reverse()
-        try: 
-            cs=languages.index('cs')
+        try:
+            cs = languages.index('cs')
         except:
-            cs=-1
-        try: 
-            en=languages.index('en')
+            cs = -1
+        try:
+            en = languages.index('en')
         except:
-            en=-1
-        lang='cs' if cs>en else 'en'
+            en = -1
+        lang = 'cs' if cs > en else 'en'
     redirect(getURL('/')+lang+'/'+str(length))
+
 
 @route('/<lang:re:cs|en>')
 @route('/<lang:re:cs|en>/')
@@ -50,37 +52,34 @@ def golang(lang):
 
 @route('/<lang:re:cs|en>/<length:int>')
 @route('/<lang:re:cs|en>/<length:int>/')
-def pwgen(lang,length):
+def pwgen(lang, length):
     response.set_cookie("lang", lang, path=getURL('/'))
-    if request.query.length: 
-        length=request.query.length
-    try :
-        length=int(length)
-        length= 8 if length<5 or length>40 else length
-    except :
-        length=8
-    if request.query.length: 
+    if request.query.length:
+        length = request.query.length
+    try:
+        length = int(length)
+        length = 8 if length < 5 or length > 40 else length
+    except:
+        length = 8
+    if request.query.length:
         redirect(getURL('/')+lang+'/'+str(length))
-    pswd= subprocess.check_output(['pwgen','-Ccn',str(length), ])
-    return template('base',passwords=pswd, length=length, lang=lang)
-
-
+    pswd = subprocess.check_output(['pwgen', '-Ccn', str(length), ])
+    return template('base', passwords=pswd, length=length, lang=lang)
 
 ############################################################################
+
+
 @error(404)
 def notFound(error):
-    r='<h1>'+error.status+'</h1>'
-    r+='<p>Sorry. Tady nic není</p><hr />'
-    r+='<p>'+error.body+'</p>'
-    return r
-
+    return template('404', status=error.status, body=error.body)
 
 
 ############################################################################
 ###  https://gist.github.com/filippo/1106488
+
 def acceptLanguages(browser_pref_langs):
-    """Parses the request and return language list.        
-    browser_pref_langs is the plain Accept-Language http request header 
+    """Parses the request and return language list.
+    browser_pref_langs is the plain Accept-Language http request header
     value.
     Stolen from Products.PloneLanguageTool, under GPL (c) Plone Foundation,
     slightly modified.
@@ -110,7 +109,7 @@ def acceptLanguages(browser_pref_langs):
                     pass
             if quality == []:
                 quality = float(length-i)
-            language = l[0]            
+            language = l[0]
             langs.append((quality, language))
             if '-' in language:
                 baselanguage = language.split('-')[0]
