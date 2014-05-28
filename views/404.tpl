@@ -30,6 +30,10 @@ h1 {
     padding: 1ex;
 }
 
+.chyba a {
+    color: #FFCC33;
+}
+
 .body {
     margin: 1ex;
     padding: 1ex;
@@ -54,6 +58,7 @@ h1 {
 
 <p class="chyba">
 Pardon, ale tuto adresu neumím zpracovat.
+Zpět na <a href="{{root}}">webPWgen</a>.
 </p>
 
 </body>
