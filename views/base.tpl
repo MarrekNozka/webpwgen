@@ -6,7 +6,7 @@
     <meta name="keywords" content="pwgen, password generátor, zapamatovatelné heslo"/>
     <link href="{{root}}look/styles.css" rel="stylesheet" type="text/css" />
     <link href="{{root}}look/favico.png" rel="shortcut icon" type="image/png" />
-    <title>webpwgen</title>
+    <title>pwgen</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
 <div id="head">
 
-    <h1 class="sideL"><a href="{{root}}">webpwgen</a></h1>
+    <h1 class="sideL"><a href="{{root}}">web pwgen</a></h1>
     <p class=sideR><span class="sideR">
 % if lang=='cs':
         Čeština
