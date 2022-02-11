@@ -1,60 +1,51 @@
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\000036}}
 body {
-  background-color: #688ea1; }
+  background-color: #688EA1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000310}}
 a:hover {
-  background-color: #688ea1; }
+  background-color: #688EA1; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000314}}
 #all {
   margin-left: 10%;
   margin-right: 4%;
   background-color: white; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000320}}
 #head, #foot {
   position: relative;
-  background: #5e905d;
+  background: #5E905D;
   color: white;
   padding: 1em 1em 0.5ex 1em; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000326}}
   #head a, #foot a {
     color: white; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000331}}
 #body {
   position: relative; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000339}}
 #body {
   padding-left: 1em;
   padding-right: 1em; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000344}}
 .sideL {
   width: 59%; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000347}}
 .sideR {
   width: 37%;
   position: relative;
   top: -3ex;
   left: 64%;
   text-align: right;
-  background-color: #dd5756;
+  background-color: #DD5756;
   color: white; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000356}}
   .sideR span.sideR {
     width: 100%;
     position: absolute;
     left: 0px;
     padding: 1ex; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/home\/marek\/Programming\/webpwgen\/styles\.scss}line{font-family:\0000364}}
 .pswd {
   font-family: monospace;
   font-size: 170%;
   padding-left: 20px;
   padding-right: 20px;
   max-width: 80ex; }
+
+/*# sourceMappingURL=styles.css.map */

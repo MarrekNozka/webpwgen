@@ -6,7 +6,7 @@
     <meta name="keywords" content="pwgen, password generátor, zapamatovatelné heslo"/>
     <link href="{{root}}look/styles.css" rel="stylesheet" type="text/css" />
     <link href="{{root}}look/favico.png" rel="shortcut icon" type="image/png" />
-    <title>webPWgen</title>
+    <title>webpwgen</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
 
 <div id="head">
 
-    <h1 class="sideL"><a href="{{root}}">webPWgen</a></h1>
+    <h1 class="sideL"><a href="{{root}}">webpwgen</a></h1>
     <p class=sideR><span class="sideR">
 % if lang=='cs':
         Čeština
@@ -43,7 +43,12 @@
 % elif lang=='en':
     <p>How long password do you want? (number from 5 to 40)<br /> 
 % end
-        <input name="length" type="text" /><input value="Generuj" type="submit" />
+        <input name="length" type="number" />
+% if lang=='cs':
+        <input value="Generuj" type="submit" />
+% else:
+        <input value="Generate" type="submit" />
+% end
     </p>
     </form>
 % if lang=='cs':
@@ -56,9 +61,9 @@
     <p>Lenght of the passwords is {{length}} characters:</p>
 % end
 
-    <p class="pswd"><kbd>
-        {{passwords}}
-    </kbd></p>
+% for password in passwords:
+    <p class="pswd"><kbd>{{ !password }}</kbd></p>
+%end
 </div>
 
 <div id="foot">
